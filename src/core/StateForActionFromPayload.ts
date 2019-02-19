@@ -1,14 +1,15 @@
-import StateForAction from "./StateForAction";
-import PreHandleResult from "./PreHandleResult";
+import StateForAction from './StateForAction';
+import PreHandleResult from './PreHandleResult';
 
 export default class StateForActionFromPayload extends StateForAction {
-
     protected newStateHandler: (payload: object) => object;
 
-    constructor(type: string,
+    constructor(
+        type: string,
         preHandle: ((payload: any, currentState: object, initialState: object) => PreHandleResult) | null,
-        newStateHandler: (payload: object) => object) {
-        super(type, preHandle)
+        newStateHandler: (payload: object) => object
+    ) {
+        super(type, preHandle);
         this.newStateHandler = newStateHandler;
     }
 
@@ -16,5 +17,4 @@ export default class StateForActionFromPayload extends StateForAction {
         const state = this.newStateHandler(payload);
         return { ...state };
     }
-
 }

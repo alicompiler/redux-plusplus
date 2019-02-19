@@ -1,12 +1,12 @@
-import IReducer from "./IReducer";
+import IReducer from './IReducer';
 import IAction from './IAction';
-import StateForAction from "./StateForAction";
+import StateForAction from './StateForAction';
 
 export default class Reducer implements IReducer {
     public initialState: object;
     protected stateForAction: StateForAction[];
     protected defaultAction: StateForAction | null;
-    private currentState: object;
+    protected currentState: object;
 
     constructor(initialState: object, stateForActrion: StateForAction[], defaultState: StateForAction | null = null) {
         this.initialState = initialState;
@@ -25,8 +25,7 @@ export default class Reducer implements IReducer {
         }
 
         return this.handleNoActionSupplied(state, action);
-    }
-
+    };
 
     private handleAction = (state: object, action: IAction): object | null => {
         for (let stateForAction of this.stateForAction) {
@@ -38,15 +37,13 @@ export default class Reducer implements IReducer {
                     }
                 }
                 const extractedState = stateForAction.extractNewState(action.payload);
-                return { ...state, ...extractedState }
+                return { ...state, ...extractedState };
             }
         }
         return null;
-    }
+    };
 
     protected handleNoActionSupplied = (state: object, action: IAction): object => {
         return state;
-    }
-
-
+    };
 }
