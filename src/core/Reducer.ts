@@ -8,9 +8,9 @@ export default class Reducer implements IReducer {
     protected defaultAction: StateForAction | null;
     protected currentState: object;
 
-    constructor(initialState: object, stateForActrion: StateForAction[], defaultState: StateForAction | null = null) {
+    constructor(initialState: object, stateForAction: StateForAction[], defaultState: StateForAction | null = null) {
         this.initialState = initialState;
-        this.stateForAction = stateForActrion;
+        this.stateForAction = stateForAction;
         this.defaultAction = defaultState;
     }
 
@@ -37,6 +37,7 @@ export default class Reducer implements IReducer {
                     }
                 }
                 const extractedState = stateForAction.extractNewState(action.payload);
+                console.log(stateForAction , action);
                 return { ...state, ...extractedState };
             }
         }

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --verbose --coverage",
     "build": "webpack -p",
     "start": "webpack-dev-server --hotOnly --port 8080"
   },
