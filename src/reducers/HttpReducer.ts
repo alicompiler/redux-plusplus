@@ -66,8 +66,8 @@ export default class HttpReducer extends Reducer {
     };
 
     protected getPendingState(): object {
-        if (this.keepStateOnLoad) return { ...this.currentState, loading: true, error: null };
-        return { loading: true, error: null };
+        if (this.keepStateOnLoad) return { ...this.currentState, loading: true, error: false };
+        return { loading: true, error: false };
     };
 
     protected getRejectedState(): object {

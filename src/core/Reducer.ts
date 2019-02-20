@@ -37,7 +37,6 @@ export default class Reducer implements IReducer {
                     }
                 }
                 const extractedState = stateForAction.extractNewState(action.payload);
-                console.log(stateForAction , action);
                 return { ...state, ...extractedState };
             }
         }
