@@ -74,8 +74,4 @@ export default class HttpReducer extends Reducer {
         if (this.keepStateOnError) return { ...this.currentState, loading: false, error: true };
         return { loading: false, error: true };
     };
-
-    protected getFulfilledState(): object {
-        return { loading: false, error: null };
-    };
 }

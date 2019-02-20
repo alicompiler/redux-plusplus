@@ -7,8 +7,10 @@ export default class FetchArrayReducer extends HttpReducer {
     static readonly ADD_ITEM_AT_LAST_CASE = 'ADD_ITEM_AT_LAST_CASE';
     static readonly ADD_ITEM_AT_INDEX = 'ADD_ITEM_AT_INDEX';
 
-    constructor(type: string, keepStateOnLoad: boolean = false, keepStateOnError: boolean = false) {
-        super({ loading: false, error: false, array: null }, type, keepStateOnLoad, keepStateOnError);
+    constructor(type: string, 
+        fulfilledStateHandler : null | ((currentState : object , payload : any) => object) = null,
+        keepStateOnLoad: boolean = false, keepStateOnError: boolean = false) {
+        super({ loading: false, error: false, array: null }, type,fulfilledStateHandler , keepStateOnLoad, keepStateOnError);
         this.addRemoveItemAtIndexCase();
         this.addItemAtStartCase();
         this.addItemAtLastCase();
@@ -59,11 +61,17 @@ export default class FetchArrayReducer extends HttpReducer {
         return { array: [...array] };
     };
 
-    protected getResetExtraState = (): object => {
-        return { array: [] };
+    protected getExtractStateFromPayloadHandler(): ((payload: any) => any) {
+        return payload => {
+            if(this.fulfilledStateHandler) {
+                const state = this.fulfilledStateHandler(this.currentState , payload);
+                return {...state , loading : false , error : false};
+            }
+            return { array: payload.data , loading : false , error : false};
+        }
     };
 
-    protected getExtractStateFromPayload = (): ((payload: any) => any) => {
-        return payload => ({ array: payload.data });
+    protected getResetExtraState(): object {
+        return { array: [] };
     };
 }
