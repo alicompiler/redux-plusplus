@@ -42,3 +42,23 @@ test("test-reset" , () => {
     expect(newState2).toEqual({loading : false , error: null});
 });
 
+test("test-reset-with-payload" , () => {
+    const type = "SOME_ACTION";
+    const httpReducer = new HttpReducer({loading : false, error : null} , type);
+    const action : IAction = {type : type + "_" + "PENDING" , payload : {}};
+    const newState = httpReducer.reduce({loading : false, error : null} , action);
+    expect(newState).toEqual({loading : true , error : false});
+    const action2 : IAction = {type : type + "_" + "RESET" , payload : {other : false}};
+    const newState2 = httpReducer.reduce(newState , action2);
+    expect(newState2).toEqual({loading : false , error: null , other : false});
+});
+test("test-reset-with-payload-null" , () => {
+    const type = "SOME_ACTION";
+    const httpReducer = new HttpReducer({loading : false, error : null} , type);
+    const action : IAction = {type : type + "_" + "PENDING" , payload : {}};
+    const newState = httpReducer.reduce({loading : false, error : null} , action);
+    expect(newState).toEqual({loading : true , error : false});
+    const action2 : IAction = {type : type + "_" + "RESET" , payload : null};
+    const newState2 = httpReducer.reduce(newState , action2);
+    expect(newState2).toEqual({loading : false , error: null});
+});

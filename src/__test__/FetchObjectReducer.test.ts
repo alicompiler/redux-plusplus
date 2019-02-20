@@ -15,7 +15,7 @@ test("test-fetch-then-reset" , () => {
     const newState = reducer.reduce(state , {type : `${type}_FULFILLED` , payload : {data : {value : 1}}});
     expect(newState).toEqual({loading : false , error : false , object : {value : 1}});
     const newState2 = reducer.reduce(newState , {type : `${type}_RESET` , payload : {}});
-    expect(newState2).toEqual({loading: false , error : false , object : {}});
+    expect(newState2).toEqual({loading: false , error : false , object : null});
 });
 
 

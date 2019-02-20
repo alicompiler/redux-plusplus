@@ -18,7 +18,10 @@ export default class FetchObjectReducer extends HttpReducer {
         }
     };
 
-    protected getResetExtraState(): object {
-        return { object: {} };
-    };
+    protected getExtractResetStateFromPayloadHandler(): (payload: any) => object {
+        return (payload: any) => {
+            const newState = payload && (typeof payload === "object") ? payload : {};
+            return { ...this.initialState, error: false, loading: false, object: null, ...newState };
+        };
+    }
 }

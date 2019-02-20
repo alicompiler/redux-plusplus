@@ -2,9 +2,9 @@ import HttpReducer from './HttpReducer';
 import StateForActionFromPayload from '../core/StateForActionFromPayload';
 
 export default class FetchArrayReducer extends HttpReducer {
-    static readonly REMOVE_ITEM_AT_INDEX_CASE = 'REMOVE_ITEM_AT_INDEX_CASE';
-    static readonly ADD_ITEM_AT_START_CASE = 'ADD_ITEM_AT_START_CASE';
-    static readonly ADD_ITEM_AT_LAST_CASE = 'ADD_ITEM_AT_LAST_CASE';
+    static readonly REMOVE_ITEM_AT_INDEX_CASE = 'REMOVE_ITEM_AT_INDEX';
+    static readonly ADD_ITEM_AT_START_CASE = 'ADD_ITEM_AT_START';
+    static readonly ADD_ITEM_AT_LAST_CASE = 'ADD_ITEM_AT_LAST';
     static readonly ADD_ITEM_AT_INDEX = 'ADD_ITEM_AT_INDEX';
 
     constructor(type: string, 
@@ -71,7 +71,10 @@ export default class FetchArrayReducer extends HttpReducer {
         }
     };
 
-    protected getResetExtraState(): object {
-        return { array: [] };
-    };
+    protected getExtractResetStateFromPayloadHandler() : (payload:any) => object {
+        return (payload:any) => {
+            const newState = payload && (typeof payload === "object") ? payload : {};
+            return {...this.initialState , error : false , loading : false , array : null , ...newState}; 
+        };
+    }
 }

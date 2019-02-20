@@ -54,16 +54,16 @@ export default class HttpReducer extends Reducer {
 
     protected addResetCase() {
         const actionType = this.type + '_' + HttpReducer.RESET;
-        const resetState = {
-            ...this.initialState,
-            ...this.getResetExtraState()
-        };
-        this.stateForAction.push(new StateForActionFromObject(actionType, null, resetState));
+        let handler = this.getExtractResetStateFromPayloadHandler();
+        this.stateForAction.push(new StateForActionFromPayload(actionType, null, handler));
     };
 
-    protected getResetExtraState(): object {
-        return {};
-    };
+    protected getExtractResetStateFromPayloadHandler() : (payload:any) => object {
+        return (payload:any) => {
+            const newState = payload && (typeof payload === "object") ? payload : {};
+            return {...this.initialState , ...newState}; 
+        };
+    }
 
     protected getPendingState(): object {
         if (this.keepStateOnLoad) return { ...this.currentState, loading: true, error: false };
