@@ -18,14 +18,57 @@
 
 <body>
 
-    <input id="input" name="query" placeholder="placeholder...">
-    <br>
-    <button id="button">CLICK ME</button>
-    <br>
-    <button id="increase">INCREASE</button>
-    <button id="decrease">DECREASE</button>
-    <button id="post">POST REQUEST</button>
-    <button id="get">GET REQUEST</button>
+
+    <button onclick="refresh();">REFRESH</button>
+
+    <hr/>
+
+    <div>
+        <h1 id="open-close-reducer">-</h1>
+        <button id="open-button">OPEN</button>
+        <br/>
+        <button id="close-button">CLOSE</button>
+    </div>
+    
+
+    <hr/>
+
+    <div>
+        <h1 id="counter-reducer">-</h1>
+        <button id="increase-button">INCREASE</button>
+        <br/>
+        <button id="decrease-button">DECREASE</button>
+    </div>
+
+
+    <hr/>
+
+    <div>
+        <ul id="array">
+        </ul>
+        <button id="fetch-array-button">FETCH ARRAY</button>
+        <br/>
+        <button onclick="fetchArray();">ADD AT LAST</button>
+        <button onclick="fetchArray();">ADD AT START</button>
+        <button onclick="fetchArray();">ADD AT INDEX</button>
+        <input id="index" placeholder="index" />
+    </div>
+
+    <hr/>
+
+    <div>
+        <p id="object">
+        </p>
+        <button onclick="fetchObject();">FETCH</button>
+    </div>
+
+    <hr/>
+
+    <div>
+        <h1 id="success-state"></h1>
+        <h1 id="success-message"></h1>
+        <button onclick="fetchSuccess();">FETCH</button>
+    </div>
 
     <div id="log">
 

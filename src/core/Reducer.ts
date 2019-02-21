@@ -20,7 +20,7 @@ export default class Reducer implements IReducer {
         if (newState) {
             return newState;
         } else if (this.defaultAction) {
-            const extractedState = this.defaultAction.extractNewState(action.payload);
+            const extractedState = this.defaultAction.extractNewState(action.payload, this.currentState);
             return { ...state, ...extractedState };
         }
 
@@ -36,7 +36,7 @@ export default class Reducer implements IReducer {
                         return { ...result.result };
                     }
                 }
-                const extractedState = stateForAction.extractNewState(action.payload);
+                const extractedState = stateForAction.extractNewState(action.payload, this.currentState);
                 return { ...state, ...extractedState };
             }
         }
