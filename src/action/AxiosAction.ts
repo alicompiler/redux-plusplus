@@ -16,7 +16,7 @@ export default function makeAxiosAction(
     };
 }
 
-export function getHttpRequest(url: string, method: HttpMethod, data: any = {}, options: any = {}): AxiosPromise {
+function getHttpRequest(url: string, method: HttpMethod, data: any = {}, options: any = {}): AxiosPromise {
     if (method === HttpMethod.POST) {
         return Axios.post(url, data, options);
     }
