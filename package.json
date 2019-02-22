@@ -27,12 +27,10 @@
     "typescript": "^3.3.3",
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^3.1.14"
-  },
-  "dependencies": {
+    "webpack-dev-server": "^3.1.14",
     "axios": "^0.18.0",
-    "pluralize": "^7.0.0",
     "redux": "^4.0.1",
     "redux-promise-middleware": "^6.1.0"
-  }
+  },
+  "dependencies": {}
 }
