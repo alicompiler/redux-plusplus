@@ -12,7 +12,7 @@ export function addItemToLast(type: string, item: any): IAction {
 }
 
 export function addItemAtIndex(type: string, index: number, item: any): IAction {
-    const actionType = type + '_' + FetchArrayReducer.ADD_ITEM_AT_LAST_CASE;
+    const actionType = type + '_' + FetchArrayReducer.ADD_ITEM_AT_INDEX;
     return {
         type: actionType,
         payload: {

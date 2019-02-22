@@ -1,6 +1,6 @@
-import IAction from "./IAction";
+import IAction from './IAction';
 
 export default interface IReducer {
-    initialState: object
+    initialState: object;
     reduce(state: object, action: IAction): object;
 }

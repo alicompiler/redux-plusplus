@@ -11,7 +11,14 @@
             padding: 8px;
             margin: 8px;
         }
+
+        #log p{
+            padding: 16px;
+            background : #EEE;
+        }
     </style>
+
+
 
     <title>Redux++</title>
 </head>
@@ -21,55 +28,61 @@
 
     <button onclick="refresh();">REFRESH</button>
 
-    <hr/>
+    <hr />
 
     <div>
         <h1 id="open-close-reducer">-</h1>
         <button id="open-button">OPEN</button>
-        <br/>
+        <br />
         <button id="close-button">CLOSE</button>
     </div>
-    
 
-    <hr/>
+
+    <hr />
 
     <div>
         <h1 id="counter-reducer">-</h1>
         <button id="increase-button">INCREASE</button>
-        <br/>
+        <br />
         <button id="decrease-button">DECREASE</button>
     </div>
 
 
-    <hr/>
+    <hr />
 
     <div>
+        <h1 id="array-reducer-state"></h1>
         <ul id="array">
         </ul>
         <button id="fetch-array-button">FETCH ARRAY</button>
-        <br/>
-        <button onclick="fetchArray();">ADD AT LAST</button>
-        <button onclick="fetchArray();">ADD AT START</button>
-        <button onclick="fetchArray();">ADD AT INDEX</button>
-        <input id="index" placeholder="index" />
+        <br />
+        <button id="add-item-at-start">ADD AT START</button>
+        <button id="add-item-at-last">ADD AT LAST</button>
+        <button id="add-item-at-index">ADD AT INDEX</button>
+        <input id="index" type="number" placeholder="index" />
     </div>
 
-    <hr/>
+    <hr />
 
     <div>
+        <h1 id="object-reducer-state"></h1>
         <p id="object">
         </p>
-        <button onclick="fetchObject();">FETCH</button>
+        <button id="object-button">FETCH</button>
     </div>
 
-    <hr/>
+    <hr />
 
     <div>
+        <h1 id="success-reducer-state"></h1>
         <h1 id="success-state"></h1>
         <h1 id="success-message"></h1>
-        <button onclick="fetchSuccess();">FETCH</button>
+        <button id="success-state-button">FETCH</button>
     </div>
 
+
+    <br /><br /><br />
+    <h3>Store : </h3>
     <div id="log">
 
     </div>

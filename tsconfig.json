@@ -1,15 +1,14 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "outDir": "build/dist",
-    "module": "esnext",
+    "outDir": "dist",
+    "module": "commonjs",
     "target": "es5",
     "lib": [
       "es6",
       "dom"
     ],
     "sourceMap": true,
-    "allowJs": true,
     "esModuleInterop": true,
     "jsx": "react",
     "moduleResolution": "node",
@@ -20,7 +19,8 @@
     "noImplicitAny": true,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true
+    "noUnusedLocals": true,
+    "declaration": true,
   },
   "exclude": [
     "node_modules",
