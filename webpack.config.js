@@ -26,7 +26,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Redux++',
+            title: 'ReduxHelper',
             template: 'public/index.html'
         }),
         new webpack.HotModuleReplacementPlugin()
