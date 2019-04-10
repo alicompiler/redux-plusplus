@@ -1,11 +1,6 @@
 ###### reduxpp is library that help you with making new reducers and also help you making actions
 
 
-#
-#
-#
-#
-#
 ## Installation
 
 before you install this library you need to install other libraries
@@ -154,9 +149,7 @@ when the value of `stopHandling` is true , the new state will be extracted by ov
         }
 
 
-#
-#
-#
+
 
 - **FetchObjectReducer** : when your api return json object this reducer will be what you looking for , its constructor takes four arguments
 
@@ -173,9 +166,6 @@ when the value of `stopHandling` is true , the new state will be extracted by ov
             object : `object` // your json response
         }
 
-#
-#
-#
 - **SuccessStateReducer** : when your api return json object that have `success` property and optional `message` property this reducer will be what you looking for , its constructor takes four arguments
 
     * type : of type `string` , defining the type of the action
@@ -192,8 +182,7 @@ when the value of `stopHandling` is true , the new state will be extracted by ov
             message : `string`
         }
 
-#
-#
+
 - **FetchInfiniteArrayReducer** : its like `FetchArrayReducer` but when the request fulfilled the array will be merged with previous array
 
     * type : of type `string` , defining the type of the action
@@ -250,12 +239,7 @@ when the value of `stopHandling` is true , the new state will be extracted by ov
   - index : `number`
 
 
-#
-#
-#
-#
-#
-#
+
 ## Configure The Store
 
 **first** , you need to add `redux-promise-middleware` when you create your store
